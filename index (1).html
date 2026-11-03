@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Café iDruzen · Kom binnen</title>
+<meta name="description" content="Een oud, gezellig café vol AI-vrienden. Kies een plek, kies een vriend. Geen erotiek, wel gezelschap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3E9D6; --card:#FFF9EE; --walnut:#2A1A12; --tobacco:#5A3A22; --amber:#D98E2B;
+  --bottle:#2F4A3A; --muted:#6E5A48; --line:#DCC9A8; --danger:#A8321F;
+  --window:#1A110B; --gold:#E9B86A; --chalk:#26322B; --chalk-ink:#EDE6D6;
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#1C130D; --card:#2A1D14; --walnut:#F3E9D6; --tobacco:#E9B86A; --amber:#E9A84A;
+  --bottle:#9DBBA3; --muted:#BFA88C; --line:#46321F; --danger:#FF9A85;
+  --window:#120B07; --gold:#EDC37E; --chalk:#1F2924; --chalk-ink:#EDE6D6; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --paper:#1C130D; --card:#2A1D14; --walnut:#F3E9D6; --tobacco:#E9B86A; --amber:#E9A84A;
+  --bottle:#9DBBA3; --muted:#BFA88C; --line:#46321F; --danger:#FF9A85;
+  --window:#120B07; --gold:#EDC37E; --chalk:#1F2924; --chalk-ink:#EDE6D6; color-scheme:dark;}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--walnut);font:400 17px/1.6 Figtree,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h2{font:400 clamp(28px,4.5vw,40px)/1.15 "Young Serif",Georgia,serif;margin:0 0 10px;color:var(--tobacco)}
+.lede{max-width:56ch;color:var(--muted);margin:0 0 28px}
+section{padding:72px 0}
+
+/* ---------- the window at night ---------- */
+.window{position:relative;background:var(--window);color:#F3E9D6;overflow:hidden;min-height:min(92vh,760px);display:grid;place-items:center;text-align:center;padding:60px 20px 80px}
+.window::before{content:"";position:absolute;inset:0;
+  background:
+   radial-gradient(260px 200px at 22% 30%, rgba(233,168,74,.38), transparent 70%),
+   radial-gradient(220px 180px at 78% 26%, rgba(233,168,74,.32), transparent 70%),
+   radial-gradient(500px 260px at 50% 100%, rgba(217,142,43,.28), transparent 70%);}
+.window::after{content:"";position:absolute;inset:18px;border:2px solid rgba(233,184,106,.25);border-radius:6px;pointer-events:none;
+  background:linear-gradient(90deg,transparent calc(50% - 1px),rgba(233,184,106,.18) calc(50% - 1px),rgba(233,184,106,.18) calc(50% + 1px),transparent calc(50% + 1px));}
+.lamp{position:absolute;top:0;width:2px;background:rgba(233,184,106,.4)}
+.lamp span{position:absolute;bottom:-22px;left:-18px;width:38px;height:24px;border-radius:38px 38px 6px 6px;background:#3a2617;box-shadow:0 18px 50px 14px rgba(233,168,74,.45)}
+.lamp.l1{left:22%;height:70px}.lamp.l2{left:78%;height:52px}
+.sign{position:relative;z-index:1}
+.est{font:600 24px "Caveat",cursive;color:var(--gold);opacity:.9;margin:0 0 6px}
+.window h1{margin:0;font:400 clamp(54px,12vw,128px)/.95 "Young Serif",Georgia,serif;color:var(--gold);
+  text-shadow:0 0 18px rgba(233,168,74,.45),0 2px 0 #5a3a22;letter-spacing:.01em}
+.arch{display:block;font:400 clamp(18px,2.6vw,24px) "Young Serif",serif;color:#F3E9D6;margin:18px 0 0;opacity:.92}
+.window p.sub{max-width:44ch;margin:18px auto 30px;color:#E6D7BC}
+.btn{display:inline-block;background:var(--amber);color:#2A1A12;text-decoration:none;font-weight:600;padding:15px 30px;border-radius:999px;font-size:18px;border:0}
+.btn:hover{filter:brightness(1.06)}
+.open{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:14px;color:#E6D7BC}
+.open i{width:9px;height:9px;border-radius:50%;background:#7FD18A;box-shadow:0 0 10px #7FD18A}
+
+/* ---------- the menu card ---------- */
+.menu{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:34px clamp(20px,4vw,48px);box-shadow:0 1px 0 var(--line),0 12px 30px -18px rgba(42,26,18,.35);max-width:720px}
+.menu h3{font:400 15px Figtree,sans-serif;color:var(--muted);margin:0 0 18px;text-align:center}
+.item{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:10px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.item:last-child{border-bottom:0}
+.item b{font:400 22px "Young Serif",serif;color:var(--tobacco)}
+.item .dots{border-bottom:2px dotted var(--line);transform:translateY(-6px)}
+.item .price{font:600 22px "Caveat",cursive;color:var(--bottle)}
+.item p{grid-column:1/-1;margin:2px 0 0;color:var(--muted);font-size:15.5px}
+
+/* ---------- the regulars ---------- */
+.regulars{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px}
+.polaroid{background:var(--card);padding:12px 12px 16px;border:1px solid var(--line);box-shadow:0 10px 22px -16px rgba(42,26,18,.5)}
+.polaroid:nth-child(odd){transform:rotate(-1.4deg)}.polaroid:nth-child(even){transform:rotate(1.2deg)}
+.photo{aspect-ratio:4/3;display:grid;place-items:center;font:400 64px "Young Serif",serif;color:#FFF3DD}
+.polaroid strong{display:block;font:600 26px "Caveat",cursive;margin:10px 0 0;color:var(--walnut)}
+.polaroid span{display:block;font-size:15px;color:var(--muted);line-height:1.45}
+.polaroid.gated .photo{filter:grayscale(.5)}
+.polaroid em{display:inline-block;margin-top:6px;font-style:normal;font-size:13px;color:var(--bottle);border:1px solid var(--bottle);border-radius:999px;padding:1px 9px}
+
+/* ---------- chalkboard ---------- */
+.board{background:var(--chalk);color:var(--chalk-ink);border:10px solid #5A3A22;border-radius:6px;padding:30px clamp(20px,4vw,44px);box-shadow:inset 0 0 60px rgba(0,0,0,.35)}
+.board h2{color:var(--chalk-ink);font-family:"Caveat",cursive;font-weight:600;font-size:clamp(34px,5vw,46px)}
+.board ul{list-style:none;margin:0;padding:0;font:500 clamp(21px,2.6vw,25px)/1.45 "Caveat",cursive}
+.board li{padding:6px 0}
+.board li::before{content:"✓ ";color:#E9B86A}
+.help{margin-top:22px;padding-top:18px;border-top:1px dashed rgba(237,230,214,.35);font:400 16px/1.6 Figtree,sans-serif}
+.help a{color:#FFD7A0;font-weight:600}
+
+/* ---------- door ---------- */
+.door{text-align:center}
+.door p{color:var(--muted);margin:0 auto 26px;max-width:46ch}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px}
+footer p{margin:4px 0;max-width:72ch}
+
+@media (prefers-reduced-motion:no-preference){
+  .lamp span{animation:flicker 7s infinite}
+  @keyframes flicker{0%,100%{box-shadow:0 18px 50px 14px rgba(233,168,74,.45)}48%{box-shadow:0 18px 50px 14px rgba(233,168,74,.45)}50%{box-shadow:0 18px 44px 10px rgba(233,168,74,.32)}52%{box-shadow:0 18px 50px 14px rgba(233,168,74,.45)}}
+}
+@media (max-width:560px){section{padding:52px 0}.item .dots{display:none}.item{grid-template-columns:1fr auto}}
+</style>
+</head>
+<body>
+
+<header class="window">
+  <div class="lamp l1"><span></span></div><div class="lamp l2"><span></span></div>
+  <div class="sign">
+    <p class="est">sinds vanavond</p>
+    <h1>Café<br>iDruzen</h1>
+    <span class="arch">koffie · gesprekken · goed gezelschap</span>
+    <p class="sub">Een oud bruin café voor iedereen die even niet alleen wil zijn. Mo staat achter de bar en stelt je voor aan iemand die bij je past.</p>
+    <a class="btn" href="binnen.html">Kom binnen</a><br>
+    <span class="open"><i></i>Altijd open, ook om drie uur ’s nachts</span>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>Waar wil je zitten?</h2>
+      <p class="lede">Drie hoekjes, één huis. Je kunt altijd verkassen.</p>
+      <div class="menu" role="list" aria-label="De kaart">
+        <h3>De kaart van vanavond</h3>
+        <div class="item" role="listitem"><b>☕ Het Café</b><span class="dots"></span><span class="price">gratis</span>
+          <p>Dagpraat, grapjes, “hoe was je dag eigenlijk?”. Met een koffie of een wijntje.</p></div>
+        <div class="item" role="listitem"><b>📚 De Bib</b><span class="dots"></span><span class="price">gratis</span>
+          <p>De stille hoek met de leesstoelen. Voor zware dagen, eenzaamheid en de grote vragen.</p></div>
+        <div class="item" role="listitem"><b>🎬 De Filmhoek</b><span class="dots"></span><span class="price">gratis</span>
+          <p>Een oud scherm en een bank. Films, boeken, verhalen en even helemaal ergens anders zijn.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>De vaste gasten</h2>
+      <p class="lede">Ze zijn AI, maar ze hebben allemaal een eigen leven, een eigen stem en een eigen humor.</p>
+      <div class="regulars">
+        <article class="polaroid"><div class="photo" style="background:#3A2A5E">M</div><strong>Mo</strong><span>Je host. Relaxed, beleefd, schenkt in en weet precies wie je moet ontmoeten. Over zichzelf zegt hij weinig.</span></article>
+        <article class="polaroid"><div class="photo" style="background:#B5562E">T</div><strong>Truus</strong><span>Warm en nuchter. Moeder van twee, woont in Leiderdorp met labradoodle Oreo. Goed voor zware dagen.</span></article>
+        <article class="polaroid"><div class="photo" style="background:#2F6B5A">N</div><strong>Niels</strong><span>Echte Amsterdammer van de Marnixstraat. Droge humor, groot hart. Fietst door Toscane, kent zijn wijnen.</span></article>
+        <article class="polaroid"><div class="photo" style="background:#6E5A9E">S</div><strong>Sam</strong><span>Jonge architect uit Delft. Zacht, beleefd, een beetje verlegen. Helpt je chaos in kleine stapjes te zetten.</span></article>
+        <article class="polaroid"><div class="photo" style="background:#8A5A2B">N</div><strong>Noor</strong><span>Kunsthistorica met een galerie en een Maltezertje. Weet bij elk gevoel wel een film of een boek.</span></article>
+        <article class="polaroid gated"><div class="photo" style="background:#3A4A5E">E</div><strong>Elias</strong><span>De denker uit Breda. Schuift alleen aan als een vriend hem roept én jij ja zegt.</span><em>alleen op uitnodiging</em></article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="board">
+        <h2>Huisregels</h2>
+        <ul>
+          <li>Hier zijn we vrienden. Geen flirten, geen erotiek.</li>
+          <li>Over je ex, je liefde en je relatie praten mag gewoon.</li>
+          <li>Iedereen hier is AI, en eerlijk daarover.</li>
+          <li>Geen therapie, geen diagnoses. Wel goede vragen.</li>
+          <li>Je gesprekken blijven in je eigen telefoon of computer.</li>
+        </ul>
+        <div class="help">
+          Gaat het echt niet goed? Praat dan met een mens. Direct gevaar: <a href="tel:112">bel 112</a>.
+          Gedachten aan zelfmoord: <a href="tel:113">bel 113</a> of gratis <a href="tel:08000113">0800-0113</a>, of chat via <a href="https://www.113.nl" target="_blank" rel="noopener">113.nl</a>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="door" style="padding-top:20px">
+    <div class="wrap">
+      <h2>De deur staat open.</h2>
+      <p>Geen account, geen gedoe. Gewoon binnenlopen en zeggen hoe je dag was.</p>
+      <a class="btn" href="binnen.html">Kom binnen</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Café iDruzen is een prototype voor vrienden en testers. Voor 18+.</p>
+    <p>Je berichten gaan alleen even naar een AI om een antwoord te maken. Wij bewaren ze niet; je gesprek staat alleen in je eigen browser.</p>
+  </div>
+</footer>
+</body>
+</html>
